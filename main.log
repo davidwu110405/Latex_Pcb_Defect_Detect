@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.1.23)  24 JAN 2025 22:37
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.1.23)  25 JAN 2025 11:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1061,6 +1061,18 @@ File: ../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid
 <../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_accuracy_curve.png>
 File: ../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png Graphic file (type bmp)
 <../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png>
+File: ../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_loss_curve.png Graphic file (type bmp)
+<../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_loss_curve.png>
+File: ../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b8_lr0.001/train_valid_loss_curve.png Graphic file (type bmp)
+<../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b8_lr0.001/train_valid_loss_curve.png>
+File: ../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.001/train_valid_loss_curve.png Graphic file (type bmp)
+<../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.001/train_valid_loss_curve.png>
+File: ../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_accuracy_curve.png Graphic file (type bmp)
+<../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_accuracy_curve.png>
+File: ../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.001/train_valid_accuracy_curve.png Graphic file (type bmp)
+<../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.001/train_valid_accuracy_curve.png>
+File: ../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png Graphic file (type bmp)
+<../SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png>
 ) (conclusion.tex) (main.bbl
 LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line 27.
  (E:\MiKTeX\tex/latex/psnfss\omlptmcm.fd
@@ -1106,7 +1118,11 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[3] (main.aux)
+[3]
+
+
+
+[4] (main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1120,12 +1136,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29279 strings out of 408649
- 596181 string characters out of 5752279
- 1056056 words of memory out of 5000000
- 51793 multiletter control sequences out of 15000+600000
+ 29336 strings out of 408649
+ 601369 string characters out of 5752279
+ 1056369 words of memory out of 5000000
+ 51847 multiletter control sequences out of 15000+600000
  568959 words of font info for 137 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  91i,8n,96p,476b,502s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (3 pages, 65180 bytes).
+Output written on main.xdv (4 pages, 70764 bytes).
