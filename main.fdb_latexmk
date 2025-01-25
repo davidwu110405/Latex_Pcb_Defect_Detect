@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex main"] 1737775430.5399 "main.aux" "main.bbl" "main" 1737775436.69291 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1737777912.68834 -1
   "./references.bib" 1737721015 207 1ddeb30e7223afa5fc1ad01b6de05191 ""
   "E:/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1737775433 3433 7243731fb7a0387883cf1f204a8c5024 "xelatex"
+  "main.aux" 1737777910 3433 230e650827a35dd9fa3856adfaf6f82f "xelatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1737775435.19962 "main.xdv" "main.pdf" "main" 1737775436.7134 0
-  "main.xdv" 1737775433 70764 ff7b126bb5bdae2ecba2654389e6ac03 "xelatex"
+["xdvipdfmx"] 1737777911.31668 "main.xdv" "main.pdf" "main" 1737777912.71254 0
+  "main.xdv" 1737777910 81700 a0ec1ab86adb534e7e5a6c875f9c5cf8 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1737775431.13559 "d:/MyCode/Project/pcb_defect_detect/Latex/main.tex" "main.xdv" "main" 1737775436.69343 0
+["xelatex"] 1737777907.14417 "d:/MyCode/Project/pcb_defect_detect/Latex/main.tex" "main.xdv" "main" 1737777912.68909 0
   "../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png" 1737123311 31426 e5035113e52615e0425cb506fd78580c ""
   "../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_accuracy_curve.png" 1737123311 37330 ad8bcafaabb933eabe7b1680fceb6294 ""
   "../ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_loss_curve.png" 1737123311 28333 ab5317aa6f1c869c1e1acd47a5d93226 ""
@@ -205,9 +205,9 @@
   "E:/MiKTeX/tex/xelatex/xecjk/xeCJK.sty" 1659726270 183137 ed372550124703b2b73cbcc0b47cb20f ""
   "E:/MiKTeX/tex/xelatex/xecjk/xeCJKfntef.sty" 1659726270 39577 b470f8a1dbecc9c45c9bf05ca7db9188 ""
   "ImgCollect.tex" 1737722988 1475 3d15ae5739138d8c139b73c06ef86062 ""
-  "conclusion.tex" 1737715247 71 2d7b310c8138ef71194b01125fa4d75b ""
+  "conclusion.tex" 1737777906 1954 e486055a5da375c704ff00f0fafabf92 ""
   "d:/MyCode/Project/pcb_defect_detect/Latex/main.tex" 1737634075 521 398d1f92b0851b3ddb73fb422093bf81 ""
-  "experiment.tex" 1737775423 8105 5015f032c6610b9613d0bb44aae0a39d ""
+  "experiment.tex" 1737776800 8104 f83342a33a2c7e040fe72c5a1db2a33e ""
   "img/ViT_b32.jpg" 1737632103 99651 bcf8ed5db54f8b4444908040ce489d3a ""
   "img/ViT_b64.jpg" 1737632116 99190 8bbd35493475a61272f0594e3e42445a ""
   "img/ViT_b64_GAN.jpg" 1737635573 149244 e2796281b13537a2e835ac88140ef435 ""
@@ -215,8 +215,8 @@
   "img/defect_whole_pcb.jpg" 1737720319 97201 f2a3b683ea311d638448ea7278945991 ""
   "img/six_defect.jpg" 1737720383 45169 8c99c7f21c6bbb8fe77b3d5efb5b4b49 ""
   "intro.tex" 1737729420 1421 8cefccce3669f83c28d4e67aeca59086 ""
-  "main.aux" 1737775433 3433 7243731fb7a0387883cf1f204a8c5024 "xelatex"
-  "main.bbl" 1737775431 1136 c21f704f7a824d480044d4e880fba58e "bibtex main"
+  "main.aux" 1737777910 3433 230e650827a35dd9fa3856adfaf6f82f "xelatex"
+  "main.bbl" 1737776806 1136 c21f704f7a824d480044d4e880fba58e "bibtex main"
   "main.tex" 1737634075 521 398d1f92b0851b3ddb73fb422093bf81 ""
   "method.tex" 1737715342 77 e2ca6756a4ea06e92ddf38b8453d6908 ""
   "relatedwork.tex" 1737715362 77 a446f88c3656d04714f8e7da4b234b56 ""
