@@ -44,7 +44,7 @@
     \hspace*{2em}此模型在learning rate為2e-5時訓練成效最佳，而在learning rate為1e-3及1e-4時無法正確檢測各瑕疵。\\
     learning rate為1e-3及1e-4的訓練結果：
     \begin{enumerate}[1.]
-        \item train loss與valid loss約會停留在1.58~1.595之間，如圖\ref{fig:VGG_P1}（learning rate = 1e-3，batch size = 8）、圖\ref{fig:VGG_P2}（learning rate = 1e-4，batch size = 8）。
+        \item train loss與valid loss約會停留在1.58～1.595之間，如圖\ref{fig:VGG_P1}（learning rate = 1e-3，batch size = 8）、圖\ref{fig:VGG_P2}（learning rate = 1e-4，batch size = 8）。
         \item 兩者並無法正確檢測出瑕疵，由confusion matrix（圖\ref{fig:VGG_P3}）可以看出，其檢測結果皆集中於good上。
         \item 增加了GAN生成的資料集後，其train loss與valid losss約會停留在1.65~1.665之間，如圖\ref{fig:VGG_P4}（learning rate = 1e-3，batch size = 8）、圖\ref{fig:VGG_P5}（learning rate = 1e-4，batch size = 8），
               且依然無法正確檢測出瑕疵，confusion matrix與可視化結果如圖\ref{fig:VGG_P6}、圖\ref{fig:VGG_P7}所示。
@@ -65,7 +65,7 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbph]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P1.png}
     \caption{VGG B8 Lr1e-3 Loss曲線}
