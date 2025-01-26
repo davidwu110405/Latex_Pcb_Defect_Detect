@@ -1,51 +1,53 @@
 \begin{flushleft}
-  {\fontsize{12}{0} \bf 研究背景}
-  \\\hspace{2em}
-  卷積神經網絡 (Convolutional Neural Network) 在電腦視覺中佔有非常重要的地位，在影像辨識上的精準度可以達到超過人類的水準，是目前深度學習發展的一大主力。
-  \\AlexNet \cite{AlexNet} 為2012年被提出的卷積神經網路，是同年的ImageNet LSVRC 競賽的冠軍，造成很大的轟動，至此CNN廣泛地被研究。AlexNet問世之前，深度學習冷門了一段時間。因為LeNet在早期的小數據集可以取得好的表現，但在大的數據集上表現很差，因此許多人改鑽研其他的機器學習方法。而 AlexNet 的出現，可以說是時代的分水嶺，正式開啟了 CNN 的時代。
-  \\AlexNet的特點
-  \\1.模型架構：採用Kernel Size 3x3、stride 為2 的 Maxpooling。比 LeNet 的meanpooling，更能保留重要的特徵。且 stride < size (2<3)，因此pooling 可以重疊，能重複檢視特徵，避免重要的特徵被捨棄。
-  \\2.輸入層尺寸較大，可以輸入224x224 尺寸的彩色圖片。
-  \\3.kernel size：由於輸入層較大，第一層的kernel Size為11x11、stride 為4，可學習較大的局部特徵。
-  \\4.激活函數：將 LeNet 使用的 Sigmoid 改為 ReLU，可以避免因為神經網路層數過深或是梯度過小，而導致梯度消失並且相較於早期使用的 Sigmoid/Tanh，ReLU 收斂速度較快。
-  \\5.降低 overfitting 的方法：採用了 Dropout 以及資料擴增方法。
-  \\VGGNet
-  \\\hspace{2em}
-  VGGNet比AlexNet 採用更深的網路 \cite{vgg}，特點是重複使用一組module，並改用小kernel替代 AlexNet 裡的大kernel。
-  \\VGG的特點
-  \\1. VGG Block:由不同數量的 3x3 Convolutional kernel以及 2x2 的 Maxpooling 組成。
-  \\2. 小Convolutional kernel代替大Convolutional kernel:
-  VGG 使用多個 3x3 kernel代替 AlexNet 的5*5卷積核，可達到相同的receptive field，同時減少參數量。
-  \\GoogLeNet的特點 \cite{GoogLeNet}
-  \\1.1×1的Convolution: 使用 1×1 卷積作為dimension reduction來減少計算量。 藉由減少計算bottleneck，可以增加網絡深度和寬度。
-  \\2. Auxiliary network: 實驗發現在淺層的神經網路，分類更加準確，所以網路中間所產生的特徵圖有其分辨性，因此使用這些特徵圖做分類，增加額外的分支。好處為加強gradient的回傳以及額外的regularization。
-  \\ResNet特點 \cite{ResNet}
-  \\\hspace{2em}
-  為了減輕越深的神經網路訓練難度，作者想到恆等映射(Identity Mapping)來解決。輸入等於輸出，所以不管網路再怎麼深，都不應該比什麼權重都沒乘來的差。然而實驗發現，嘗試用恆等映射的方式來訓練深層神經網路，幾乎無法在合理時間內找到足夠好的準確率。接著作者提出一種「殘差映射」(Residual Mapping)訓練深層神經網路，作者優化「殘差」這件事情，會比直接學習恆等映射要來的容易。在大於50層的網路，作者提出Bottleneck的設計，來節省大量的參數。透過1x1的conv降維後再升維的技巧，架構可以兼顧更高維度與效能。
-  \\SqueezeNet架構設計策略\cite{SqueezeNet}
-  \\\hspace{2em}
-  \\1.	將3×3 filters 取代為1×1 filters
-  \\2.	減少3×3 filter的input channel數
-  \\3.	在網絡的後期進行Downsample，使卷積層有較大的activation map。
-  減少CNN中的參數量，同時保持accuracy。與AlexNet相比，使用SqueezeNet尺寸减少了50倍，同時達到AlexNet的top-1和top-5 accuracy。
-  \\Xception \cite{Xception}
-  \\\hspace{2em}
-  Depthwise Separable Convolutions：傳統的 CNN 由於 Filter 都是使用所有通道(深度) ，運算量會較多，透過先進行 Depth-wise convolutions(通道分離) 再進行 Point-wise Convolutions(維度調整)，可以達成降低運算量的目的，且與傳統的 CNN 相比，運算量大幅減少，並且 Performance 下降的幅度相當小，使其在 Edge device 有相當大的優勢。作者基於通道及空間可分離的特性提出假設，透過觀察後發現 Inception 介於兩種極端的中間( CNN \& Depthwise Separable )，從而將 Inception Module 改為 Depthwise Separable Convolution 並在 ImageNet 上有了小幅的提升，也證明其效用較之 InceptionV3 在相同的參數量下，能更有效的利用參數，同時架構的架設也更為簡易。
+  {\fontsize{12}{0} \bf 2. 研究背景}
+  \setlength{\parskip}{10pt}
 
-  MobileNet \cite{MobileNet}
-  \\\hspace{2em}
-  MobileNet v1 使用 Depthwise Separable Convolution 建構神經網路以及引入兩個超參數 Width Mutiplier、Resolution Multiplier 讓開發人員可以依據自己的應用與資源選擇合適的模型。Depthwise Separable Convolution 包含了深度卷積 (depthwise convolution) 和逐點卷積 (pointwise convolution)，與一般的卷積操作不同，核心思想就是把卷積過程的計算量減少。一般卷積的 filter 是用在所有的輸入通道上 (input channels)，而 depthwise convolution 則對每個輸入通道採用不同的 filter，也就是說一個 filter 對應一個輸入通道。每個輸入通道做完 depthwise convolution 後，再採用 pointwise convolution 將輸出融合，其實就是使用 1x1 的卷積核做計算。如此的操作，輸出和一般的卷積層差不多，但是大大的降低了計算量及模型參數量。
+  \hspace*{2em}卷積神經網絡 (Convolutional Neural Network，以下簡稱CNN) 在電腦視覺中佔有非常重要的地位，在影像辨識上的精準度可以達到超過人類的水準，是目前深度學習發展的一大主力。
+  AlexNet \cite{AlexNet} 為2012年被提出的卷積神經網路，是同年的ImageNet LSVRC 競賽的冠軍，造成很大的轟動，至此CNN廣泛地被研究。AlexNet問世之前，深度學習冷門了一段時間。因為LeNet在早期的小數據集可以取得好的表現，但在大的數據集上表現很差，因此許多人改鑽研其他的機器學習方法。而 AlexNet 的出現，可以說是時代的分水嶺，正式開啟了 CNN 的時代。
+  
+  \hspace*{2em}AlexNet\cite{AlexNet}採用Kernel Size 3x3、stride 為2 的 Maxpooling。比 LeNet 的meanpooling，更能保留重要的特徵。且 stride < size (2<3)，因此pooling 可以重疊，能重複檢視特徵，避免重要的特徵被捨棄。
+  由於輸入層較大，可以輸入224x224尺寸的彩色圖片，可學習較大的局部特徵。Activation function由LeNet使用的Sigmoid改為ReLU，可以避免因為神經網路層數過深或是梯度過小，而導致梯度消失並且相較於早期使用的Sigmoid/Tanh收斂速度較快。
+  並採用了dropout及資料擴增以降低overfitting。
+  
+  \hspace*{2em}VGG\cite{vgg}比AlexNet 採用更深的網路 ，特點是重複使用一組module，並改用小kernel替代 AlexNet 裡的大kernel。
+  VGG使用多個VGG Block(由不同數量的 3x3 Convolutional kernel以及 2x2 的 Maxpooling 組成)，代替AlexNet的5*5卷積核，可達到相同的receptive field，同時減少參數量。
 
-  EfficientNet \cite{EfficientNet}
-  \\\hspace{2em}
-  複合縮放 (Compound Scaling)：網路深度、寬度、解析度是相互影響的，因此作者認為應該要同時調整這三種縮放方法。在不同網路深度、解析度下寬度縮放的準確度比較，作者得到了一個結論: 為了追求更高的準確率，平衡網路深度、寬度、解析度是很重要的關鍵。作者使用一組固定的縮放係數 (就是複合係數 ϕ) 將網路模型均勻地縮放，此超參數須自己定義，是用於控制能使用多少資源在模型縮放上。該研究發現平衡這三種縮放能夠獲得更好的性能，因為他們之間會相互影響: 對於解析度高的圖像，使用更深的網路、獲取更大的感受野，能夠有更好的效果，同時增加網路寬度可以得到更細度的特徵。
-  \\\hspace{2em}作者受 MnasNet 的啟發，利用多目標神經結構搜索產生高效能的模型 EfficientNet-B0，使用的搜索空間與 MnasNet 相同，但優化目標稍有不同: MnasNet 是優化延遲，而 EfficientNet 則是優化 FLOPS。
+  \hspace{2em}GoogLeNet \cite{GoogLeNet}使用 1×1 卷積作為dimension reduction來減少計算量。 藉由減少計算bottleneck，可以增加網絡深度和寬度。
+  在淺層的神經網路，分類更加準確，所以網路中間所產生的特徵圖有其分辨性，因此使用這些特徵圖做分類，增加額外的分支。好處為加強gradient的回傳以及額外的regularization。
+  
+  \hspace{2em}ResNet \cite{ResNet}為了減輕越深的神經網路訓練難度，作者想到恆等映射(Identity Mapping)來解決。輸入等於輸出，所以不管網路再怎麼深，都不應該比什麼權重都沒乘來的差。
+  然而實驗發現，嘗試用恆等映射的方式來訓練深層神經網路，幾乎無法在合理時間內找到足夠好的準確率。
+  接著作者提出一種「殘差映射」(Residual Mapping)訓練深層神經網路，作者優化「殘差」這件事情，會比直接學習恆等映射要來的容易。
+  在大於50層的網路，作者提出Bottleneck的設計，來節省大量的參數。透過1x1的conv降維後再升維的技巧，架構可以兼顧更高維度與效能。
+  
+  \hspace*{2em}SqueezeNet\cite{SqueezeNet}透過將3×3 filters取代為1×1filters並減少3×3 filter的input channel數，最後在網絡的後期進行Downsample，使卷積層有較大的activation map。藉此減少CNN中的參數量，同時保持accuracy。
+  與AlexNet相比，使用SqueezeNet尺寸减少了50倍，同時達到AlexNet的top-1和top-5 accuracy。
+  
+  \hspace*{2em}Xception\cite{Xception}Depthwise Separable Convolutions：傳統的 CNN 由於 Filter 都是使用所有通道(深度) ，運算量會較多，
+  透過先進行 Depth-wise convolutions(通道分離) 再進行 Point-wise Convolutions(維度調整)，可以達成降低運算量的目的，且與傳統的 CNN 相比，
+  運算量大幅減少，並且 Performance 下降的幅度相當小，使其在 Edge device 有相當大的優勢。作者基於通道及空間可分離的特性提出假設，
+  透過觀察後發現 Inception 介於兩種極端的中間( CNN \& Depthwise Separable )，從而將 Inception Module 改為 Depthwise Separable Convolution 並在 ImageNet 上有了小幅的提升，
+  也證明其效用較之 InceptionV3 在相同的參數量下，能更有效的利用參數，同時架構的架設也更為簡易。
 
-  Transformer \cite{Transformer}
-  \\\hspace{2em}Transformer 如今已成為熱門的神經網路架構，並且大量的應用在自然語言(NLP)任務。它的成功追朔於 2017 年 Google 所提出的 Attention Is All You Need。這樣的重大突破使得 Google 團隊將這一套 Transformer 架構中的 Encoder 抽離出來變成 Vision Transformer (ViT) 應用在影像分類技術上。此外它拋棄了 CNN 層並以 self-attention 計算做取代，並在分類問題上取得不錯的成績。
+  \hspace*{2em}MobileNet\cite{MobileNet}使用 Depthwise Separable Convolution 建構神經網路以及引入兩個超參數 Width Mutiplier、Resolution Multiplier 讓開發人員可以依據自己的應用與資源選擇合適的模型。
+  Depthwise Separable Convolution 包含了深度卷積 (depthwise convolution) 和逐點卷積 (pointwise convolution)，與一般的卷積操作不同，核心思想就是把卷積過程的計算量減少。
+  一般卷積的 filter 是用在所有的輸入通道上 (input channels)，而 depthwise convolution 則對每個輸入通道採用不同的 filter，
+  也就是說一個 filter 對應一個輸入通道。每個輸入通道做完 depthwise convolution 後，再採用 pointwise convolution 將輸出融合，
+  其實就是使用 1x1 的卷積核做計算。如此的操作，輸出和一般的卷積層差不多，但是大大的降低了計算量及模型參數量。
 
-  GAN \cite{gan}
-  \\\hspace{2em}GAN是由兩個神經網絡所構成的，一個叫做Generator(生成器)另一個叫做Discriminator(判別器)。Generator做的事情就是想辦法把一堆雜訊變成看起來很逼真的照片，而Discriminator做的事情就是想辦法去判別說哪個是真的照片哪個是從Generator生成的假照片。所以在訓練的過程中，Generator生成的照片會越來越逼真，想辦法騙過Discriminator，而Discriminator也會想盡辦法去學習辨識真的和假的照片。而這樣兩個神經網絡對抗的過程，我們叫做Adversarial Learning。所以我們的最終目標就是讓Discriminator完全無法區別哪個是真的照片哪個是假的照片。
-  \\\hspace{2em}GAN的優點也是他的缺點，它繞過了學Representation這個概念，GAN的學習目標就是直接想辦法生出一堆看起來很像真實照片的假照片，所以GAN的學習過程屬於隱式的，也就是說他沒有學到真正的Representation，所以很難和文字、語音做整合，但是也因為這樣GAN的訓練、推論速度比其他生成模型，如Diffusion model來的快。另外很多學者並不喜歡GAN的架構，作者用了很多技巧讓訓練變得更穩定，但是沒有特別解釋為什麼。
+  \hspace{2em}EfficientNet\cite{EfficientNet}作者認為應該要同時調整這三種縮放方法，因複合縮放 (Compound Scaling)：網路深度、寬度、解析度是相互影響的。在不同網路深度、解析度下寬度縮放的準確度比較，作者得到了一個結論: 為了追求更高的準確率，平衡網路深度、寬度、解析度是很重要的關鍵。
+  作者使用一組固定的縮放係數 (就是複合係數 ϕ) 將網路模型均勻地縮放，此超參數須自己定義，是用於控制能使用多少資源在模型縮放上。該研究發現平衡這三種縮放能夠獲得更好的性能，因為他們之間會相互影響: 對於解析度高的圖像，使用更深的網路、獲取更大的感受野，能夠有更好的效果，同時增加網路寬度可以得到更細度的特徵。
+  受 MnasNet 的啟發，作者利用多目標神經結構搜索產生高效能的模型 EfficientNet-B0，使用的搜索空間與 MnasNet 相同，但優化目標稍有不同: MnasNet 是優化延遲，而 EfficientNet 則是優化 FLOPS。
 
-  \end{flushleft}
+  \hspace{2em}Transformer\cite{Transformer}Transformer 如今已成為熱門的神經網路架構，並且大量的應用在自然語言(NLP)任務。
+  它的成功追朔於 2017 年 Google 所提出的 Attention Is All You Need。這樣的重大突破使得 Google 團隊將這一套 Transformer 架構中的 Encoder 抽離出來變成 Vision Transformer (ViT) 應用在影像分類技術上。
+  此外它拋棄了 CNN 層並以 self-attention 計算做取代，並在分類問題上取得不錯的成績。
+
+  \hspace{2em}GAN\cite{gan}是由兩個神經網絡所構成的，一個叫做Generator(生成器)另一個叫做Discriminator(判別器)。
+  Generator做的事情就是想辦法把一堆雜訊變成看起來很逼真的照片，而Discriminator做的事情就是想辦法去判別說哪個是真的照片哪個是從Generator生成的假照片。
+  所以在訓練的過程中，Generator生成的照片會越來越逼真，想辦法騙過Discriminator，而Discriminator也會想盡辦法去學習辨識真的和假的照片。
+  而這樣兩個神經網絡對抗的過程，我們叫做Adversarial Learning。所以我們的最終目標就是讓Discriminator完全無法區別哪個是真的照片哪個是假的照片。
+  \\\hspace*{2em}GAN的優點也是他的缺點，它繞過了學Representation這個概念，GAN的學習目標就是直接想辦法生出一堆看起來很像真實照片的假照片，
+  所以GAN的學習過程屬於隱式的，也就是說他沒有學到真正的Representation，所以很難和文字、語音做整合，但是也因為這樣GAN的訓練、推論速度比其他生成模型，
+  如Diffusion model來的快。
+\end{flushleft}

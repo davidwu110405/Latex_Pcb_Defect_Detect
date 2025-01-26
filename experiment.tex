@@ -1,19 +1,19 @@
 %%
 %%
 \begin{flushleft}
-    {\fontsize{12}{0} \bf 實驗結果}
+    {\fontsize{12}{0} \bf 4. 實驗結果}
 \end{flushleft}
 %
 %   AlexNet
 \begin{abstract}
-    AlexNet\\
+    \textbf{AlexNet}\\
     原始資料訓練特點
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item Batch Size 值較小時，Epoch的增加Loss無明顯下降，表現差不多。
         \item Batch Size 值較大時，Epoch的增加Training Loss明顯下降。
     \end{enumerate}
     加入GAN的訓練結果
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item Epoch值較小時，Loss表現與原始資料差不多。
         \item Epoch值較大時，Loss表現能看出比原始資料好一點。
     \end{enumerate}
@@ -40,10 +40,10 @@
 %
 %   VGG
 \begin{abstract}
-    VGG\\
+    \textbf{VGG}\\
     \hspace*{2em}此模型在learning rate為2e-5時訓練成效最佳，而在learning rate為1e-3及1e-4時無法正確檢測各瑕疵。\\
     learning rate為1e-3及1e-4的訓練結果：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item train loss與valid loss約會停留在1.58～1.595之間，如圖\ref{fig:VGG_P1}（learning rate = 1e-3，batch size = 8）、圖\ref{fig:VGG_P2}（learning rate = 1e-4，batch size = 8）。
         \item 兩者並無法正確檢測出瑕疵，由confusion matrix（圖\ref{fig:VGG_P3}）可以看出，其檢測結果皆集中於good上。
         \item 增加了GAN生成的資料集後，其train loss與valid losss約會停留在1.65~1.665之間，如圖\ref{fig:VGG_P4}（learning rate = 1e-3，batch size = 8）、圖\ref{fig:VGG_P5}（learning rate = 1e-4，batch size = 8），
@@ -51,7 +51,7 @@
         \item 原資料集的Precision固定為0.0715，增加GAN生成圖片的資料集Precision固定為0.0662，Recall皆固定為0.1429。
     \end{enumerate}
     learning rate為2e-5的訓練結果：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item train loss會收斂至0.01以下，valid loss收斂的位置，batch size為8時，會比32與64還小，但皆在0.01附近，如圖\ref{fig:VGG_P8}（batch size = 8）
         \item 資料集與增加GAN生成的資料集的準確率皆能達到97.5\%以上。
         \item 增加GAN生成圖片的資料集不一定會較準確，有時會比原資料集大，有時較小，但若將所有fold中的各個batch size的test accuracy加總做平均計算，
@@ -59,7 +59,7 @@
         \item Precision與Recall皆能達到0.95以上。
     \end{enumerate}
     不同learning rate下表現懸殊的情況，推測原因有二：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 資料集的分布較不平均，good資料集的總數明顯比其他資料集大上許多，因此訓練的模型可能較無法分辨各種瑕疵，這也能解釋為何confusion maitrix上的辨識結果都會集中在good上。
         \item VGG模型訓練的learning rate不能太大，由設定的三個參數中可以得知，最小的2e-5表現明顯比1e-3、1e-4優異。
     \end{enumerate}
@@ -128,23 +128,23 @@
 %
 %   GoogLeNet
 \begin{abstract}
-    GoogLeNet
+    \textbf{GoogLeNet}\\
     %
     在GoogLeNet的模型訓練當中，觀察accurracy、loss曲線：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 隨著Batch size的減少，在Batch size 64時loss 會有很大的震盪，在Batch size 32時，震盪會收斂變小，而在Batch size 8 會呈現平滑。
         \item 準確率也隨Batch size減少而震盪減少，在Batch size 64會有很大的震盪。
         \item Train loss在epoch 10~20左右就會收斂。
     \end{enumerate}
     %
     在GoogLeNet的模型訓練當中，觀察confusion matrix與其指標：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 在Batch size 8和Batch size 32時，多數特徵會辨識為good。
         \item 承上點，若這種狀況發生時，瑕疵的precision會較高，而recall會較低，和瑕疵檢測所需要的高recall矛盾，所以應該避免此類參數。
     \end{enumerate}
     %
     加入GAN之後的變化：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 加入GAN之後，還是會有震盪，只是變成集中在Epochs 30以前，過Epoch 30 之後震盪明顯變小。
         \item Train Loss 收斂速度差不多。
     \end{enumerate}
@@ -163,17 +163,17 @@
     \label{fig:GoogLeNet_P2}
 \end{figure}
 %
-%
+%   ResNet
 \begin{abstract}
-    ResNet\\
+    \textbf{ResNet}\\
     在ResNet的模型訓練當中，觀察accurracy、loss曲線：
-    \begin{enumerate}[1.] 
+    \begin{enumerate}
         \item ResNet在訓練中不論是有無使用GAN擴充的資料集，近乎都是呈現無法收斂的情況\ref{fig:ResNet_unconvergence_loss_curve}，除了設定batch size為32，learning rate為1e-4或2e-5的情況有收斂完成。
         \item 在準確度上也對應了loss曲線的情況，因未成功收斂而導致準確度較差，在特定數據下才有準確率達到0.97的情況\ref{fig:ResNet_accuracy_curve}。
         \item 針對有使用GAN的資料集，在loss曲線有收斂完成的情況下，準確率較無使用GAN的資料集略低0.01左右。
     \end{enumerate}
     在ResNet的模型訓練當中，觀察confusion matrix與其指標：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 對於同一個class，在loss曲線有收斂完成的情況下，precision與recall都達到0.96左右，而未完成收斂的情況則是precision明顯高於recall。
         \item 以confusion matrix綜觀全部的classes，最差的表現通常落在open、good，而以open的情況又較差\ref{fig:ResNet_confusion_matrix}。
     \end{enumerate}
@@ -206,16 +206,16 @@
 %
 %   SqueezeNet
 \begin{abstract}
-    SqueezeNet\\
+    \textbf{SqueezeNet}\\
     在SqueezeNet的模型訓練當中，觀察accurracy、loss曲線：
-    \begin{enumerate}[1.] 
+    \begin{enumerate}
         \item SqueezeNet在不論是有無使用GAN進行擴充的資料集下，loss曲線幾乎都有收斂\ref{fig:SqueezeNet_convergence_loss_curve}，除了在batch size為8與learning rate為1e-3，以本次實驗來說batch size極小learning rate極大的情況下，loss曲線完全沒有收斂\ref{fig:SqueezeNet_unconvergence_loss_curve}，甚至是模型完全沒有學習到特徵。
         \item 而在learning rate為1e-3的情況下，多數的loss曲線會在epoch為10左右出現較大的起伏\ref{fig:SqueezeNet_unconvergence_loss_curve_1e-3}，進而影響到後面的模型收斂與最後的準確率。
         \item 準確度上因為多數情況下loss曲線都有收斂，所以準確度普遍落在0.96左右\ref{fig:SqueezeNet_accuracy_curve_0.96}，在learning rate為1e-3，並且最後有收斂的情況下，準確率在0.69左右\ref{fig:SqueezeNet_accuracy_curve_0.69}。
         \item 針對有使用GAN的資料集，在loss曲線有收斂完成的情況下，準確率與無使用GAN的資料集無明顯差異。
     \end{enumerate}
     在SqueezeNet的模型訓練當中，觀察confusion matrix與其指標：
-    \begin{enumerate}[1.] 
+    \begin{enumerate}
         \item 對於同一個class，在loss曲線有收斂完成的情況下，precision與recall都達到0.96左右，而未完成收斂的情況則是precision與recall數據持平，表示模型並沒有完整學習到特徵。
         \item 以confusion matrix綜觀全部的classes，最差的表現通常落在open、good，又以open的情況又較差\ref{fig:SqueezeNet_confuson_matrix}。
     \end{enumerate}
@@ -260,7 +260,7 @@
 %
 %   Xception
 \begin{abstract}
-    Xception
+    \textbf{Xception}
     \\Learning rate觀察：
 
     當batch size = 64，且learning rate為1e-3(圖\ref{fig:Xception_P1})、1e-4(圖\ref{fig:Xception_P2})時，valid loss會產生大幅波動，波動的頻率隨著learning rate的降低而趨緩；
@@ -315,28 +315,28 @@
 %
 %   MobileNetV1
 \begin{abstract}
-    MobileNetV1\\
+    \textbf{MobileNetV1}\\
     在MoblieNetV1的模型訓練當中，觀察accurracy、loss曲線：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item Loss約在epoch30左右收斂。
         \item 但當learning rate增加(約1e-4,1e-3)，會震盪且無發收斂；Batch size 減少也會有一樣情況，但主要依learning 為主。
         \item 此模在此次實驗數據中，以較高的batch size 和 較小的learning rate 表現較好。
     \end{enumerate}
     %
     在MoblieNet的模型訓練當中，觀察confusion matrix與其指標：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 在learning rate 1e-3時，部分模型將good預測為其他特徵，如mousebite、spur等等。
     \end{enumerate}
     %
     加入GAN之後的變化：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 在加入GAN後，平均精度(mAP)有些微上升約1~2\%。
     \end{enumerate}
 \end{abstract}
 %
 %   MNASNet
 \begin{abstract}
-    MNASNet\\
+    \textbf{MNASNet}\\
     \hspace*{2em}在MNASNet的訓練結果中，我們可以發現，訓練的valid loss基本上都沒有收斂，
     形狀為跳動（圖\ref{fig:MNASNet_P1}）或呈現Ｖ形（圖\ref{fig:MNASNet_P2}），且結果十分不穩定，接下來透過分析confusion matrix中的結果來推導原因。
     %
@@ -442,15 +442,15 @@
 %
 %EfficientNet
 \begin{abstract}
-    EfficientNet\\
+    \textbf{EfficientNet}\\
     EfficientNet原始資料集訓練結果中
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item Epoch值較大時，模型訓練表現Loss確實略微下降。注意到隨著Batch size值較大時，Loss下降較為明顯。
         \item 觀察到隨著Batch size值越大，訓練表現的Loss略為增加。
     \end{enumerate}
     %
     GAN生成資料集的表現特點
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 表現與原始資料集相比，並無明顯差別。
         \item 觀察相同Epoch= 50與 Learning Rate= 2e-5的條件下，Batch Size的增加Loss的表現無明顯改善。
     \end{enumerate}
@@ -477,24 +477,24 @@
 %
 %   ViT
 \begin{abstract}
-    ViT\\
+    \textbf{ViT}\\
     在ViT的模型訓練當中，觀察accurracy、loss曲線：
-    \begin{enumerate}[1.]
-        \item 隨著learning rate增加，模型收斂的速度也隨之增快，若learning rate過低(如lr = 1*e-3)，會有可能遇到模型收斂困難的問題。
+    \begin{enumerate}
+        \item 隨著learning rate增加，模型收斂的速度也隨之增快，若learning rate過低(如lr = 1e-3)，會有可能遇到模型收斂困難的問題。
         \item 模型訓練的準確度在epoch10～20的區間時就已經接近100\%，訓練集準確度接近100\%，但驗證集的準確率在收斂至約95\%時就不再收斂。
         \item 更改batch size參數，batch size提升時整體loss皆有下降的趨勢，準確率也有相對提升，不過隨著learning rate提升，改變batch size所造成的影響也隨之變小。
     \end{enumerate}
     %
     在ViT的模型訓練當中，觀察confusion matrix與其指標：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 對於同一個class，有時候Precision會低於Recall，有時Precision高於Recall，表示模型漏檢或是誤報的現象並不固定。
         \item 綜觀全部的class，表現最差class大多都落在open、short、spur，而open的表現最差，約落在90\%。
     \end{enumerate}
     %
     加入GAN之後的變化:
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 對於整個訓練來說，隨著epoch增加的模型收斂速度有略為提升。
-        \item 在較低learning rate當中的表現有得到不錯的提升，到了lr=1*e-5原本就很高的準確率也上升了1～2\%。
+        \item 在較低learning rate當中的表現有得到不錯的提升，到了lr=2e-5原本就很高的準確率也上升了1～2\%。
     \end{enumerate}
 \end{abstract}
 %
@@ -509,7 +509,7 @@
 %
 %ConvNeXt
 \begin{abstract}
-    ConvNeXt
+    \textbf{ConvNeXt}
     \\Learning rate觀察：
     
     此模型於相同batch Size時，在learning rate為1e-3時，20個epoch內便能使valid loss低於0.2(圖\ref{fig:ConvNeXt_P1})，30個epoch的valid accuracy已達0.95(圖\ref{fig:ConvNeXt_P2})；
@@ -524,7 +524,7 @@
     當batch size由8提升至64時，recall與F1 score皆略微提升，precision略微降低。Batch size為32時，mPA、TestLoss和TestAccuracy有著最佳表現，有著最低的loss與最高的accuracy。
     %
     \\模型總結：
-    \begin{enumerate}[1.]
+    \begin{enumerate}
         \item 對本資料集較大的Learning rate(1e-3)更適合，有著更快的收斂速度及更高的準確率。
         \item 對本資料集Batch size為32最適合，可於最多的指標獲得最佳效果。
     \end{enumerate}
@@ -554,12 +554,12 @@
     \caption{ConvNeXt B64 Lr2e-5 Accuracy曲線}
     \label{fig:ConvNeXt_P4}
 \end{figure}
-\begin{table}
+\begin{table}[htbp]
     \centering
     \caption{ConvNeXt Batch size64 Test Result}
     \begin{tabular}{|r|c|c|c|c|c|c|c|c|}
         \hline
-        & Precision & Recall & F1 Score & mAP & TestLoss & TestAccuracy \\
+        & Precision & Recall & F1 Score & mAP & Loss & Accuracy \\
         \hline
         Lr1e-3 & 0.9512 & 0.946 & 0.9481 & 0.946 & 0.1335 & 0.9598 \\
         \hline
@@ -582,12 +582,12 @@
     \caption{ConvNeXt B8 Lr1e-3 Accuracy曲線}
     \label{fig:ConvNeXt_P6}
 \end{figure}
-\begin{table}
+\begin{table}[htbp]
     \centering
     \caption{ConvNeXt Learning rate1e-3 Test Result}
     \begin{tabular}{|r|c|c|c|c|c|c|c|}
         \hline
-        & Precision & Recall & F1 Score & mAP & TestLoss & TestAccuracy \\
+        & Precision & Recall & F1 Score & mAP & Loss & Accuracy \\
         \hline
         B8 & 0.9609 & 0.936 & 0.9474 & 0.936 & 0.1398 & 0.9598 \\
         \hline
