@@ -1,12 +1,15 @@
 %%
 %%
 \begin{flushleft}
+    \setlength{\parskip}{10pt}
+
     {\fontsize{12}{0} \bf 4. 實驗結果}
 \end{flushleft}
 %
+
 %   AlexNet
 \begin{abstract}
-    \textbf{AlexNet}\\
+    \noindent\textbf{A. AlexNet}\\
     原始資料訓練特點
     \begin{enumerate}
         \item Batch Size 值較小時，Epoch的增加Loss無明顯下降，表現差不多。
@@ -19,28 +22,29 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/AlexNet/b8_lr1e-3_loss.png}
     \caption{AlexNet B8 Lr1e-3 Loss曲線\protect\\(左:epoch10，右:epoch50)}
     \label{fig:AlexNet_b8_lr1e-3_loss_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/AlexNet/b32_lr1e-3_loss.png}
     \caption{AlexNet B32 Lr1e-3 Loss曲線\protect\\(左:epoch10，右:epoch50)}
     \label{fig:AlexNet_b32_lr1e-3_loss_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/AlexNet/b32_lr1e-3_GAN_loss.png}
     \caption{AlexNet B32 Lr1e-3 GAN Loss曲線\protect\\(左:epoch10，右:epoch50)}
     \label{fig:AlexNet_b32_lr1e-3_GAN_loss_curve}
 \end{figure}
 %
+
 %   VGG
 \begin{abstract}
-    \textbf{VGG}\\
+    \noindent\textbf{B. VGG}\\
     \hspace*{2em}此模型在learning rate為2e-5時訓練成效最佳，而在learning rate為1e-3及1e-4時無法正確檢測各瑕疵。\\
     learning rate為1e-3及1e-4的訓練結果：
     \begin{enumerate}
@@ -65,70 +69,71 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P1.png}
     \caption{VGG B8 Lr1e-3 Loss曲線}
     \label{fig:VGG_P1}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P2.png}
     \caption{VGG B8 Lr1e-4 Loss曲線}
     \label{fig:VGG_P2}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P3.png}
     \caption{VGG confusion matrix}
     \label{fig:VGG_P3}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P4.png}
     \caption{VGG B8 Lr1e-3 GAN Loss曲線}
     \label{fig:VGG_P4}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P5.png}
     \caption{VGG B8 Lr1e-4 GAN Loss曲線}
     \label{fig:VGG_P5}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P6.png}
     \caption{VGG GAN confusion matrix}
     \label{fig:VGG_P6}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\textwidth]{./img/VGG/P7.png}
+    \includegraphics[width=0.35\textwidth]{./img/VGG/P7.png}
     \caption{VGG GAN 可視化結果} 
     \label{fig:VGG_P7}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P8.png}
     \caption{VGG B8 Lr2e-5 GAN Loss曲線}
     \label{fig:VGG_P8}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/VGG/P9.png}
     \caption{VGG B8 Lr2e-5 GAN confusion matrix}
     \label{fig:VGG_P9}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\textwidth]{./img/VGG/P10.png}
+    \includegraphics[width=0.35\textwidth]{./img/VGG/P10.png}
     \caption{VGG B8 Lr2e-5 GAN 可視化結果}
     \label{fig:VGG_P10}
 \end{figure}
 %
+
 %   GoogLeNet
 \begin{abstract}
-    \textbf{GoogLeNet}\\
+    \noindent\textbf{C. GoogLeNet}\\
     %
     在GoogLeNet的模型訓練當中，觀察accurracy、loss曲線：
     \begin{enumerate}
@@ -150,22 +155,23 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/GoogLeNet/P1.png}
     \caption{GoogLeNet loss曲線}
     \label{fig:GoogLeNet_P1}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/GoogLeNet/P2.png}
     \caption{GoogLeNet accuracy曲線}
     \label{fig:GoogLeNet_P2}
 \end{figure}
 %
+
 %   ResNet
 \begin{abstract}
-    \textbf{ResNet}\\
+    \noindent\textbf{D. ResNet}\\
     在ResNet的模型訓練當中，觀察accurracy、loss曲線：
     \begin{enumerate}
         \item ResNet在訓練中不論是有無使用GAN擴充的資料集，近乎都是呈現無法收斂的情況\ref{fig:ResNet_unconvergence_loss_curve}，除了設定batch size為32，learning rate為1e-4或2e-5的情況有收斂完成。
@@ -179,34 +185,36 @@
     \end{enumerate}
 \end{abstract}
 %   ResNet Figure
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./ResNet/runs/colorless_with_GAN/Fold2/train_e50_b64_lr0.001/train_valid_loss_curve.png}
     \caption{ResNet未收斂loss曲線}
     \label{fig:ResNet_unconvergence_loss_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_loss_curve.png}
     \caption{ResNet已收斂loss曲線}
     \label{fig:ResNet_convergence_loss_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_accuracy_curve.png}
     \caption{ResNet Accuracy曲線}
     \label{fig:ResNet_accuracy_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./ResNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png}
     \caption{ResNet Confusion Matrix}
     \label{fig:ResNet_confusion_matrix}
 \end{figure}
 %
+\FloatBarrier
+
 %   SqueezeNet
 \begin{abstract}
-    \textbf{SqueezeNet}\\
+    \noindent\textbf{E. SqueezeNet}\\
     在SqueezeNet的模型訓練當中，觀察accurracy、loss曲線：
     \begin{enumerate}
         \item SqueezeNet在不論是有無使用GAN進行擴充的資料集下，loss曲線幾乎都有收斂\ref{fig:SqueezeNet_convergence_loss_curve}，除了在batch size為8與learning rate為1e-3，以本次實驗來說batch size極小learning rate極大的情況下，loss曲線完全沒有收斂\ref{fig:SqueezeNet_unconvergence_loss_curve}，甚至是模型完全沒有學習到特徵。
@@ -221,46 +229,48 @@
     \end{enumerate}
 \end{abstract}
 %   SqueezeNet Figure
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_loss_curve.png}
     \caption{SqueezeNet已收斂loss曲線}
     \label{fig:SqueezeNet_convergence_loss_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b8_lr0.001/train_valid_loss_curve.png}
     \caption{SqueezeNet之loss曲線表示模型無學習到特徵}
     \label{fig:SqueezeNet_unconvergence_loss_curve}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.001/train_valid_loss_curve.png}
     \caption{SqueezeNet之loss曲線收斂但較不穩}
     \label{fig:SqueezeNet_unconvergence_loss_curve_1e-3}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/train_valid_accuracy_curve.png}
     \caption{ResNet Accuracy曲線}
     \label{fig:SqueezeNet_accuracy_curve_0.96}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.001/train_valid_accuracy_curve.png}
     \caption{ResNet Accuracy曲線}
     \label{fig:SqueezeNet_accuracy_curve_0.69}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./SqueezeNet/runs/colorless_with_GAN/Fold2/train_e50_b32_lr0.0001/confusion_matrix.png}
     \caption{ResNet Confusion Matrix}
     \label{fig:SqueezeNet_confuson_matrix}
 \end{figure}
 %
+\FloatBarrier
+
 %   Xception
 \begin{abstract}
-    \textbf{Xception}
+    \noindent\textbf{F. Xception}
     \\Learning rate觀察：
 
     當batch size = 64，且learning rate為1e-3(圖\ref{fig:Xception_P1})、1e-4(圖\ref{fig:Xception_P2})時，valid loss會產生大幅波動，波動的頻率隨著learning rate的降低而趨緩；
@@ -282,40 +292,42 @@
     較小的Learning rate與較大的Batch size更適合本資料集，可以得到更加穩定的訓練過程。
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/Xception/P1.png}
     \caption{Xception B64 Lr1e-3 Loss曲線}
     \label{fig:Xception_P1}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/Xception/P2.png}
     \caption{Xception B64 Lr1e-4 Loss曲線}
     \label{fig:Xception_P2}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/Xception/P3.png}
     \caption{Xception B64 Lr2e-5 Loss曲線}
     \label{fig:Xception_P3}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/Xception/P4.png}
     \caption{Xception B8 Lr2e-5 Loss曲線}
     \label{fig:Xception_P4}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/Xception/P5.png}
     \caption{Xception B32 Lr2e-5 Loss曲線}
     \label{fig:Xception_P5}
 \end{figure}
 %
+\FloatBarrier
+
 %   MobileNetV1
 \begin{abstract}
-    \textbf{MobileNetV1}\\
+    \noindent\textbf{G. MobileNetV1}\\
     在MoblieNetV1的模型訓練當中，觀察accurracy、loss曲線：
     \begin{enumerate}
         \item Loss約在epoch30左右收斂。
@@ -334,9 +346,10 @@
     \end{enumerate}
 \end{abstract}
 %
+
 %   MNASNet
 \begin{abstract}
-    \textbf{MNASNet}\\
+    \noindent\textbf{H. MNASNet}\\
     \hspace*{2em}在MNASNet的訓練結果中，我們可以發現，訓練的valid loss基本上都沒有收斂，
     形狀為跳動（圖\ref{fig:MNASNet_P1}）或呈現Ｖ形（圖\ref{fig:MNASNet_P2}），且結果十分不穩定，接下來透過分析confusion matrix中的結果來推導原因。
     %
@@ -392,47 +405,47 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P1.png}
     \caption{MNASNet 跳動 Loss曲線}
     \label{fig:MNASNet_P1}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P2.png}
     \caption{MNASNet V型 Loss曲線}
     \label{fig:MNASNet_P2}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P3.png}
     \caption{MNASNet 錯誤辨識為good\protect\\
              confusion matrix範例}
     \label{fig:MNASNet_P3}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P4.png}
     \caption{MNASNet 部分good辨識為瑕疵\protect\\
              confusion matrix}
     \label{fig:MNASNet_P4}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P5.png}
     \caption{MNASNet 部分瑕疵辨識為good\protect\\
              confusion matrix}
     \label{fig:MNASNet_P5}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P6.png}
     \caption{MNASNet 全瑕疵辨識為good\protect\\
              confusion matrix}
     \label{fig:MNASNet_P6}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/MNASNet/P7.png}
     \caption{MNASNet good正確辨識、\protect\\
@@ -440,9 +453,11 @@
     \label{fig:MNASNet_P7}
 \end{figure}
 %
+\FloatBarrier
+
 %EfficientNet
 \begin{abstract}
-    \textbf{EfficientNet}\\
+    \noindent\textbf{I. EfficientNet}\\
     EfficientNet原始資料集訓練結果中
     \begin{enumerate}
         \item Epoch值較大時，模型訓練表現Loss確實略微下降。注意到隨著Batch size值較大時，Loss下降較為明顯。
@@ -456,28 +471,30 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/EfficientNet/P1.png}
     \caption{EfficientNet epoch30 Lr2e-5 Loss曲線\protect\\(左:Batch size32，右:Batch size64)}
     \label{fig:EfficientNet_P1}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/EfficientNet/P2.png}
     \caption{EfficientNet epoch50 Lr2e-5 Loss曲線\protect\\(左:Batch size32，右:Batch size64)}
     \label{fig:EfficientNet_P2}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/EfficientNet/P2.png}
     \caption{EfficientNet epoch50 Lr2e-5 GAN Loss曲線\protect\\(左:Batch size32，右:Batch size64)}
     \label{fig:EfficientNet_P3}
 \end{figure}
 %
+\FloatBarrier
+
 %   ViT
 \begin{abstract}
-    \textbf{ViT}\\
+    \noindent\textbf{K. ViT}\\
     在ViT的模型訓練當中，觀察accurracy、loss曲線：
     \begin{enumerate}
         \item 隨著learning rate增加，模型收斂的速度也隨之增快，若learning rate過低(如lr = 1e-3)，會有可能遇到模型收斂困難的問題。
@@ -498,7 +515,7 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering 
     \includegraphics[width=0.85\linewidth, height=4cm]{img/ViT_b8.jpg} 
     \includegraphics[width=0.85\linewidth, height=4cm]{img/ViT_b32.jpg}
@@ -507,9 +524,10 @@
     \caption{ViT訓練結果}
 \end{figure}
 %
-%ConvNeXt
+
+%   ConvNeXt
 \begin{abstract}
-    \textbf{ConvNeXt}
+    \noindent\textbf{L. ConvNeXt}
     \\Learning rate觀察：
     
     此模型於相同batch Size時，在learning rate為1e-3時，20個epoch內便能使valid loss低於0.2(圖\ref{fig:ConvNeXt_P1})，30個epoch的valid accuracy已達0.95(圖\ref{fig:ConvNeXt_P2})；
@@ -530,31 +548,32 @@
     \end{enumerate}
 \end{abstract}
 %
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ConvNeXt/P1.png}
     \caption{ConvNeXt B64 Lr1e-3 Loss曲線}
     \label{fig:ConvNeXt_P1}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ConvNeXt/P2.png}
     \caption{ConvNeXt B64 Lr1e-3 Accuracy曲線}
     \label{fig:ConvNeXt_P2}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ConvNeXt/P3.png}
     \caption{ConvNeXt B64 Lr2e-5 Loss曲線}
     \label{fig:ConvNeXt_P3}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ConvNeXt/P4.png}
     \caption{ConvNeXt B64 Lr2e-5 Accuracy曲線}
     \label{fig:ConvNeXt_P4}
 \end{figure}
-\begin{table}[htbp]
+\begin{table}[!ht]
+    \footnotesize
     \centering
     \caption{ConvNeXt Batch size64 Test Result}
     \begin{tabular}{|r|c|c|c|c|c|c|c|c|}
@@ -570,19 +589,20 @@
     \end{tabular}
     \label{table:ConvNeXt_T1}
 \end{table}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ConvNeXt/P5.png}
     \caption{ConvNeXt B8 Lr1e-3 Loss曲線}
     \label{fig:ConvNeXt_P5}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ConvNeXt/P6.png}
     \caption{ConvNeXt B8 Lr1e-3 Accuracy曲線}
     \label{fig:ConvNeXt_P6}
 \end{figure}
-\begin{table}[htbp]
+\begin{table}[!ht]
+    \footnotesize
     \centering
     \caption{ConvNeXt Learning rate1e-3 Test Result}
     \begin{tabular}{|r|c|c|c|c|c|c|c|}
@@ -598,3 +618,4 @@
     \end{tabular}
     \label{table:ConvNeXt_T2}
 \end{table}
+\FloatBarrier
